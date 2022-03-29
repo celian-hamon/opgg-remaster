@@ -1,0 +1,287 @@
+/* import for font Noto Sans */
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+/* import the rosé pine color palette */
+@import url("https://unpkg.com/@rose-pine/palette/css/rose-pine.css");
+
+/* keyframes for spawn animation */
+@keyframes spawn {
+    0% {
+        opacity: 0;
+        transform: translateY(50%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes zoomOnHover {
+    0% {
+        background-size: 100%;
+    }
+    100% {
+        background-size: 150%;
+    }
+}
+
+:root {
+    --primary-color: var(--rose-main-surface);
+    --primary-text-color: var(--rose-main-text);
+    --secondary-color: var(--rose-main-accent);
+    --secondary-text-color: var(--rose-main-iris);
+    --tertiary-color: var(--rose-main-accent-light);
+    --card-background-color: var(--rose-main-accent-light);
+    --background-color: var(--rose-main-base);
+}
+::-webkit-scrollbar {
+    display: none;
+}
+
+* {
+    transition: all 0.5s;
+    margin: 0;
+
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+body {
+    color: var(--primary-text-color);
+    font-family: "Noto Sans", sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: var(--background-color);
+    overflow: hidden;
+    flex-wrap: wrap;
+}
+
+#background {
+    filter: blur(5px);
+    height: 100vh;
+    width: 100vw;
+    object-fit: cover;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 0;
+}
+
+.spawn {
+    animation: spawn 0.5s;
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    background: var(--primary-color);
+    width: auto;
+    margin: 20px;
+}
+
+#card-user {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: flex-start;
+    padding: 10px;
+    min-height: 40px;
+}
+#card-user > h1 {
+    padding: 0px 7px 7px 0px;
+    font-size: 2em;
+    display: flex;
+    align-items: center;
+}
+#card-user > h2 {
+    color: var(--secondary-text-color);
+}
+#card-user > h2 > img {
+    transform: translateY(5px);
+    padding: 0 2px 0 2px;
+    background-color: var(--rose-main-love);
+    border-radius: 50%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.26);
+}
+
+#card-user > img {
+    background-color: var(--rose-main-love);
+}
+
+#profile-picture {
+    margin-right: 5px;
+}
+
+#card-champ {
+    display: flex;
+    flex-direction: row;
+}
+
+#container-champ {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    min-height: 40px;
+}
+
+.champion-card {
+    margin: 20px;
+    padding: 0px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.champion-content {
+    background: linear-gradient(to top, rgb(0, 0, 0), rgba(0, 0, 0, 0.164) 85%);
+    font-size: 1.3em;
+    height: 150px;
+    width: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    padding: 7px;
+    min-height: 40px;
+    z-index: 4;
+    color: var(--primary-text-color);
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    padding: 2px 16px;
+}
+
+#container-match {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    overflow: auto;
+    justify-content: start;
+
+    width: 700px;
+    height: 300px;
+}
+
+.match-card {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin: 0;
+    padding: 0px;
+    height: 110px;
+    margin-bottom: 20px;
+}
+
+.match-content {
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.match-text-defeat {
+    color: var(--rose-main-love);
+}
+
+.match-text-victory {
+    color: var(--rose-main-foam);
+}
+.match-summoner-champion {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 150px;
+    padding-left: 7px;
+}
+
+.match-summoner-champion-img {
+    box-sizing: border-box;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.match-date {
+    font-size: 0.8em;
+    color: var(--rose-main-muted);
+}
+.match-summoner-spell-imgs {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: flex-start;
+}
+.match-summoner-spell-imgs img {
+    width: 30px;
+    height: 30px;
+    margin: 0 5px;
+}
+.match-stats {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-left: 10px;
+    width: 120px;
+}
+.match-stats-kda {
+    text-align: center;
+    color: var(--rose-main-muted);
+}
+.match-stats-streak {
+    border-radius: 12px;
+    text-align: center;
+    color: var(--rose-main-text);
+}
+
+.match-stats-streak-doubleKills {
+    color: var(--rose-main-highlight-low);
+    background-color: var(--rose-main-love);
+}
+.match-stats-streak-tripleKills {
+    color: var(--rose-main-highlight-low);
+    background-color: var(--rose-main-gold);
+}
+.match-stats-streak-quadraKills {
+    color: var(--rose-main-highlight-low);
+    background-color: var(--rose-main-iris);
+}
+.match-stats-streak-pentaKills {
+    color: var(--rose-main-highlight-low);
+    background-color: var(--rose-main-foam);
+}
+.match-stats-misc{
+    text-align: center;
+}
+.match-items{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 90px;
+    height: 100%;
+    padding-left: 7px;
+}
+.match-item{
+    width: 30px;
+    height: 30px;
+    margin: 0px;
+}
+
+.match {
+    border: solid 2px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
