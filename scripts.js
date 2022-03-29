@@ -1,6 +1,6 @@
 user = findGetParameter("name");
 
-apikey = "RGAPI-e30cf4ee-89f1-418e-949f-1f33f3ba2878";
+apikey = "";
 
 version = "12.5.1";
 
